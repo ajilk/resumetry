@@ -1,4 +1,4 @@
 .venv
 __pycache__
-.generated.tex
-output.pdf
+*/**/.generated.tex
+*/**/output.pdf

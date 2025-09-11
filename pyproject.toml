@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resumetry"
+version = "0.1.0"
+description = "Config + template → PDF generator (LaTeX), Typer-based CLI"
+authors = [{ name = "Azimjon Ilkhomov", email = "ajilkhomov@gmail.com" }]
+license = { text = "MIT" }
+dependencies = [
+    "typer",
+    "rich",
+    "jinja2",
+    "pyyaml",
+]
+
+[project.scripts]
+resumetry = "resumetry.main:app"
