@@ -1,4 +1,6 @@
 .venv
+dist
+resumetry.egg-info
 __pycache__
 */**/.generated.tex
 */**/output.pdf

@@ -15,5 +15,15 @@ dependencies = [
     "pyyaml",
 ]
 
+[tool.setuptools.packages.find]
+include = ["resumetry"]
+
+[tool.setuptools.package-data]
+resumetry = [
+  "templates/**/*",
+  "templates/**/*.tex",
+  "templates/**/*.yaml"
+]
+
 [project.scripts]
 resumetry = "resumetry.main:app"

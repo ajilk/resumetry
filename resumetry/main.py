@@ -2,8 +2,8 @@ from pathlib import Path
 from rich.console import Console
 from typing_extensions import Annotated, Optional
 import typer
-from utils import Utils
-from validators import Validators
+from .utils import Utils
+from .validators import Validators
 
 app = typer.Typer(
     name="resumetry",
@@ -16,9 +16,9 @@ console = Console()
 
 @app.command()
 def main(
-    config: Annotated[str, typer.Option("--config", "-c", help = "path to the config yaml file ", callback=Validators.path)] = "./config.yaml",
+    config: Annotated[str, typer.Option("--config", "-c", help = "path to the config yaml file ", callback=Validators.path)] = "./templates/sample/sample.yaml",
     template: Annotated[Optional[str], typer.Option("--template", "-t", help = "predefined LaTex template", callback=Validators.choices)] = None,
-    template_path: Annotated[Optional[str], typer.Option("--template-path", help = "path to the template LaTeX file", callback=Validators.path)] = None,
+    template_path: Annotated[Optional[str], typer.Option("--template-path", help = "path to the template LaTeX file", callback=Validators.path)] = "./templates/sample/sample.tex",
     output: Annotated[str, typer.Option("--output", "-o", help = "path to the output file")]  = "./output.pdf",
     engine: Annotated[str, typer.Option("--engine", "-e", help="pdflatex | xelatex | lualatex")] = "pdflatex",
 ):
