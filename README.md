@@ -1,5 +1,5 @@
 # resumetry
 template driven document generation
 
-**Design**
+**Design**  
 [Typer](https://github.com/fastapi/typer) - CLI Framework
