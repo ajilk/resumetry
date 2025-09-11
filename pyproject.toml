@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resumetry"
-version = "0.1.1"
+version = "0.1.2"
 description = "Config + template → PDF generator (LaTeX), Typer-based CLI"
 authors = [{ name = "Azimjon Ilkhomov", email = "ajilkhomov@gmail.com" }]
 license = { text = "MIT" }
