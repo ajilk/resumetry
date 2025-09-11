@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\setlist[itemize]{topsep=2pt,itemsep=2pt,left=12pt}
+
+\begin{document}
+
+{\LARGE {{ name }}} \\[2pt]
+{\large {{ title }}} \\[2pt]
+{\textit {{ email }}}
+
+\section*{Skills}
+\begin{itemize}
+{% for s in skills %}
+  \item {{ s }}
+{% endfor %}
+\end{itemize}
+
+\section*{Experience}
+{% for job in experience %}
+{\textbf {{ job.role }} — {{ job.company }} \hfill {{ job.dates }} \\[-2pt]}
+\begin{itemize}
+  {% for b in job.bullets %}
+    \item {{ b }}
+  {% endfor %}
+\end{itemize}
+{% endfor %}
+
+\end{document}

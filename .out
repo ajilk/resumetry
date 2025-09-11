@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\setlist[itemize]{topsep=2pt,itemsep=2pt,left=12pt}
+
+\begin{document}
+
+{\LARGE John Doe} \\[2pt]
+{\large Engineer} \\[2pt]
+{\textit johndoe@example.com}
+
+\section*{Skills}
+\begin{itemize}
+  \item Python
+  \item SQL
+  \item LaTeX
+\end{itemize}
+
+\section*{Experience}
+{\textbf Engineer — Acme Co. \hfill 2023–present \\[-2pt]}
+\begin{itemize}
+    \item Built data pipelines
+    \item Improved reporting by 30%
+\end{itemize}
+{\textbf Developer — Beta Corp \hfill 2021–2023 \\[-2pt]}
+\begin{itemize}
+    \item Maintained web apps
+    \item Introduced testing framework
+\end{itemize}
+
+\end{document}
