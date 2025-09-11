@@ -21,7 +21,7 @@ def validate_path(value: str):
     return value
 
 def validate_choices(value: str):
-    if value not in TEMPLATES_LIST:
+    if value and value not in TEMPLATES_LIST:
         raise typer.BadParameter(f"Supported values {TEMPLATES_LIST}")
     return value
 
