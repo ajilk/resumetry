@@ -1,12 +1,12 @@
-from pathlib import Path
 import typer
+from importlib.resources import files
 
 TEMPLATES_LIST = ["sample"]
 
 class Validators:
     @staticmethod
     def path(value: str):
-        if value and not Path(value).exists():
+        if value and not files("resumetry").joinpath(value).is_file():
             raise typer.BadParameter(value)
         return value
 

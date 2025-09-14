@@ -1,29 +1,22 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "resumetry"
 version = "0.1.2"
-description = "Config + template → PDF generator (LaTeX), Typer-based CLI"
-authors = [{ name = "Azimjon Ilkhomov", email = "ajilkhomov@gmail.com" }]
-license = { text = "MIT" }
-dependencies = [
-    "typer",
-    "rich",
-    "jinja2",
-    "pyyaml",
+description = "config + template (LaTeX)→ PDF generator"
+readme = "README.md"
+authors = [
+    { name = "Azimjon Ilkhomov", email = "ajilkhomov@gmail.com" }
 ]
-
-[tool.setuptools.packages.find]
-include = ["resumetry"]
-
-[tool.setuptools.package-data]
-resumetry = [
-  "templates/**/*",
-  "templates/**/*.tex",
-  "templates/**/*.yaml"
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2>=3.1.6",
+    "pyyaml>=6.0.2",
+    "rich>=14.1.0",
+    "typer>=0.17.4",
 ]
 
 [project.scripts]
-resumetry = "resumetry.main:app"
+resumetry = "resumetry.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"
