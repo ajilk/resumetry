@@ -2,23 +2,24 @@ import subprocess, tempfile, shutil
 from pathlib import Path
 import yaml
 
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from jinja2 import Environment, DictLoader, StrictUndefined
+from importlib.resources.abc import Traversable
 
 class Utils:
     @staticmethod
-    def read_yaml(path: Path) -> dict:
+    def read_yaml(path: Traversable) -> dict:
         return yaml.safe_load(path.read_text(encoding="utf-8"))
 
     @staticmethod
-    def render_tex(template_path: Path, context: dict) -> str:
+    def render_tex(path: Traversable, context: dict) -> str:
         env = Environment(
-            loader=FileSystemLoader(str(template_path.parent)),
+            loader=DictLoader({"_": path.read_text()}),
             undefined=StrictUndefined,
             autoescape=False,
             trim_blocks=True,
             lstrip_blocks=True,
         )
-        tmpl = env.get_template(template_path.name)
+        tmpl = env.get_template("_")
         return tmpl.render(**context)
 
     @staticmethod
