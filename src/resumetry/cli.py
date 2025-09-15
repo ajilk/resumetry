@@ -32,6 +32,10 @@ def _version_callback(value: bool):
 
 @app.callback(invoke_without_command=True)
 def build(
+    config: Annotated[str, typer.Option("--config", "-c", help = "path to the config yaml file ")],
+    template: Annotated[Optional[str], typer.Option("--template", "-t", help = "predefined LaTex template", callback=Validators.choices)] = 'sample',
+    output: Annotated[str, typer.Option("--output", "-o", help = "path to the output file")]  = "./output.pdf",
+    engine: Annotated[str, typer.Option("--engine", "-e", help="pdflatex | xelatex | lualatex")] = "pdflatex",
     version: Annotated[
             bool,
             typer.Option(
@@ -42,10 +46,6 @@ def build(
                 callback=_version_callback,
             ),
         ] = False,
-    config: Annotated[str, typer.Option("--config", "-c", help = "path to the config yaml file ", callback=Validators.path)] = '',
-    template: Annotated[Optional[str], typer.Option("--template", "-t", help = "predefined LaTex template", callback=Validators.choices)] = 'sample',
-    output: Annotated[str, typer.Option("--output", "-o", help = "path to the output file")]  = "./output.pdf",
-    engine: Annotated[str, typer.Option("--engine", "-e", help="pdflatex | xelatex | lualatex")] = "pdflatex",
 ):
     cfg_path = Path(config)
     out_path = Path(output)

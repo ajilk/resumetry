@@ -6,6 +6,7 @@ TEMPLATES_LIST = ["sample"]
 class Validators:
     @staticmethod
     def path(value: str):
+        # check for valid path and not just under resumetry
         if value and not files("resumetry").joinpath(value).is_file():
             raise typer.BadParameter(value)
         return value
