@@ -12,3 +12,6 @@ wheels/
 # resumetry generated files
 .generated.tex
 output.pdf
+
+# mac generated files
+.DS_Store
