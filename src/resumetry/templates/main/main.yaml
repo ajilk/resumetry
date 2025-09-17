@@ -48,14 +48,14 @@ experiences:
     details:
       - A
       - B
-# skills:
-#   - name: Letters
-#     value:
-#       - A
-#       - B
-#       - C
-#   - name: Numbers
-#     value:
-#       - 1
-#       - 2
-#       - 3
+skills:
+  - name: Letters
+    value:
+      - A
+      - B
+      - C
+  - name: Numbers
+    value:
+      - 1
+      - 2
+      - 3
