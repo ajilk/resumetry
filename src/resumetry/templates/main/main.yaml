@@ -1,0 +1,61 @@
+personal:
+  url: "https://google.com"
+  name: "John Doe"
+  title: "Software Engineer"
+  email: "johndoe@gmail.com"
+  phone: "(111)222-3333"
+  city: "New York"
+  state: "NY"
+links:
+  website:
+    url: "https://www.google.com"
+    text: "google.com"
+  linkedin:
+    url: "https://www.linkedin.com"
+    text: "linkedin.com/in/test"
+projects:
+  - name: "Project A"
+    description: "Project A Description"
+    website:
+      url: "https://google.com"
+      text: "Project A Link"
+    start: "Jun 2025"
+    end: "May 2025"
+  - name: "Project B"
+    description: "Project B Description"
+    website:
+      url: "https://google.com"
+      text: "Project B Link"
+    start: "Jun 2025"
+    end: "May 2025"
+educations:
+  - school: "Standford University"
+    degree: "M.S. in AI"
+    start: "Jun 2020"
+    end: "Dec 2025"
+experiences:
+  - role: "Role A"
+    company: "Company A"
+    start: "Jun 2020"
+    end: "Jun 2025"
+    details:
+      - A
+      - B
+  - role: "Role B"
+    company: "Company B"
+    start: "Jun 2020"
+    end: "Jun 2025"
+    details:
+      - A
+      - B
+# skills:
+#   - name: Letters
+#     value:
+#       - A
+#       - B
+#       - C
+#   - name: Numbers
+#     value:
+#       - 1
+#       - 2
+#       - 3

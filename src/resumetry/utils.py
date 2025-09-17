@@ -18,6 +18,10 @@ class Utils:
             autoescape=False,
             trim_blocks=True,
             lstrip_blocks=True,
+            comment_start_string='<%',
+            comment_end_string='%>',
+            variable_start_string="\\VAR{",
+            variable_end_string="}",
         )
         tmpl = env.get_template("_")
         return tmpl.render(**context)

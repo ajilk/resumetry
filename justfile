@@ -1,8 +1,10 @@
+default: build
+
 @release:
   echo 'tagged'
   echo 'pushed'
   echo 'updated sha'
 
-default:
-  release
+@build:
+   uv run resumetry --config src/resumetry/templates/main/main.yaml --template main
 

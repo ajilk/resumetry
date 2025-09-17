@@ -1,7 +1,7 @@
 import typer
 from importlib.resources import files
 
-TEMPLATES_LIST = ["sample"]
+TEMPLATES_LIST = ["sample", "main"]
 
 class Validators:
     @staticmethod

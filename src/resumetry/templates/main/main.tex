@@ -1,0 +1,137 @@
+\documentclass[letterpaper,10.5pt]{article}
+
+% template: START
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+	\item\small{\textbf{#1}{#2 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingShort}[2]{
+  \item\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=20pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\renewcommand{\|}{$\mid$}
+% template: END
+
+\begin{document}
+%----------HEADING-----------------
+\centering
+{\href{\VAR{personal.url}}{\textbf{\LARGE \VAR{personal.name}}} \\ \vspace*{0.10in}
+{{\VAR{personal.phone} \| \href{mailto:\VAR{personal.email} }{\VAR{personal.email}} \| \VAR{personal.city}, \VAR{personal.state} \\
+\href{\VAR{links.website.url} }{\VAR{links.website.text}}
+{% if github is defined %} \| \href{ {{github}} }{ {{github_text}} } {% endif %}
+\| \href{\VAR{links.linkedin.url}}{\VAR{links.linkedin.text}}
+
+{% if skills is defined %}
+%------SKILLS & INTERESTS------------
+\vspace*{0.01in}
+\section{Skills / Certifications}
+	\resumeSubHeadingListStart
+	    {% for s in skills %}
+		\resumeSubItem{\VAR{s.name}}{: \VAR{s.value | join(', ')} }
+		{% endfor %}
+	\resumeSubHeadingListEnd
+{% endif %}
+
+{% if experiences is defined %}
+%-----------EXPERIENCE-----------------
+\vspace*{0.01in}
+\section{Experience}
+	\resumeSubHeadingListStart
+	    {% for e in experiences %}
+		\resumeSubheading{\VAR{e.company}}{}{\VAR{e.role} }{ \VAR{e.start} - \VAR{e.end} }{}
+		{% if e.details is defined %}
+		\resumeItemListStart
+		    {% for d in e.details %}
+			\resumeItem{}{\VAR{d}}
+			{% endfor %}
+		\resumeItemListEnd
+		{% endif %}
+		{% endfor %}
+	\resumeSubHeadingListEnd
+{% endif %}
+
+{% if projects is defined %}
+%-----------PROJECTS-----------------
+\vspace*{0.01in}
+\section{Projects}
+	\resumeSubHeadingListStart
+	    {% for p in projects %}
+		\resumeSubItem{\VAR{p.name} }{ --- \href{\VAR{p.website.url} }{\textit{\VAR{p.website.text}}} \hspace*{\fill} \textit{\VAR{p.start} - \VAR{p.end}} \newline
+		    \VAR{p.description}
+		}
+		{% endfor %}
+	\resumeSubHeadingListEnd
+{% endif %}
+
+{% if educations is defined %}
+%-----------EDUCATION-----------------
+\vspace*{0.01in}
+\section{Education}
+	\resumeSubHeadingListStart
+	    {% for e in educations %}
+	    \resumeSubheadingShort{\VAR{e.degree} --- \VAR{e.school}}{\textit{\VAR{e.start} - \VAR{e.end}}}
+	    {% endfor %}
+	\resumeSubHeadingListEnd
+{% endif %}
+\end{document}
