@@ -1,13 +1,23 @@
 # resumetry
 template driven document generation
 
-**Execute**
+### prerequisites
+```
+brew install basictex
+sudo tlmgr install enumitem
+sudo tlmgr install preprint
+sudo tlmgr install marvosym
+```
+
+### installation
+```
+brew tap ajilk/tools
+```
+
+## usage
 ```
 python main.py \
   -c templates/sample/sample.yaml \
-  --template-path templates/sample/sample.tex \
+  [-t main] or [--template-path templates/main/main.tex] \
   -o templates/sample/sample.pdf
 ```
-
-**Design**  
-[Typer](https://github.com/fastapi/typer) - CLI Framework

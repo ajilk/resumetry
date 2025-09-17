@@ -8,6 +8,11 @@ default: build
 @build:
    uv run resumetry --config src/resumetry/templates/main/main.yaml --template main
 
-@resumetry:
+@build-tp:
+   uv run resumetry \
+    --config src/resumetry/templates/main/main.yaml \
+    --template-path src/resumetry/templates/main/main.tex \
+
+@prod:
    resumetry --config src/resumetry/templates/main/main.yaml --template main
 

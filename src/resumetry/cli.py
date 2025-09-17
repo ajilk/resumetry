@@ -34,6 +34,7 @@ def _version_callback(value: bool):
 def build(
     config: Annotated[str, typer.Option("--config", "-c", help = "path to the config yaml file ")],
     template: Annotated[Optional[str], typer.Option("--template", "-t", help = "predefined LaTex template", callback=Validators.choices)] = 'sample',
+    template_path: Annotated[Optional[str], typer.Option("--template-path", help = "path to LaTex template")] = None,
     output: Annotated[str, typer.Option("--output", "-o", help = "path to the output file")]  = "./output.pdf",
     engine: Annotated[str, typer.Option("--engine", "-e", help="pdflatex | xelatex | lualatex")] = "pdflatex",
     version: Annotated[
@@ -50,7 +51,7 @@ def build(
     cfg_path = Path(config)
     out_path = Path(output)
 
-    tpl_path = files("resumetry").joinpath(f"templates/{template}/{template}.tex")
+    tpl_path = Path(template_path) if template_path else files("resumetry").joinpath(f"templates/{template}/{template}.tex")
     console.print(f"[green]✓ Read template[/green] [dim]{tpl_path}")
 
     data = Utils.read_yaml(cfg_path)

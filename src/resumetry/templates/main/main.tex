@@ -82,17 +82,6 @@
 {% if github is defined %} \| \href{ {{github}} }{ {{github_text}} } {% endif %}
 \| \href{\VAR{links.linkedin.url}}{\VAR{links.linkedin.text}}
 
-{% if skills is defined %}
-%------SKILLS & INTERESTS------------
-\vspace*{0.01in}
-\section{Skills / Certifications}
-	\resumeSubHeadingListStart
-	    {% for s in skills %}
-		\resumeSubItem{\VAR{s.name}}{: \VAR{s.value | join(', ')} }
-		{% endfor %}
-	\resumeSubHeadingListEnd
-{% endif %}
-
 {% if experiences is defined %}
 %-----------EXPERIENCE-----------------
 \vspace*{0.01in}
@@ -120,6 +109,17 @@
 		\resumeSubItem{\VAR{p.name} }{ --- \href{\VAR{p.website.url} }{\textit{\VAR{p.website.text}}} \hspace*{\fill} \textit{\VAR{p.start} - \VAR{p.end}} \newline
 		    \VAR{p.description}
 		}
+		{% endfor %}
+	\resumeSubHeadingListEnd
+{% endif %}
+
+{% if skills is defined %}
+%------SKILLS & INTERESTS------------
+\vspace*{0.01in}
+\section{Skills / Certifications}
+	\resumeSubHeadingListStart
+	    {% for s in skills %}
+		\resumeSubItem{\VAR{s.name}}{: \VAR{s.value | join(', ')} }
 		{% endfor %}
 	\resumeSubHeadingListEnd
 {% endif %}
